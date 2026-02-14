@@ -105,6 +105,7 @@ namespace RPG
     {
         public string Name { get; set; }
         public int Hp { get; set; }
+        private int hp;
         public int Defense { get; set; }
         public int Attack { get; set; }
         public int Level { get; set; }
@@ -114,7 +115,10 @@ namespace RPG
         Random rnd = new Random();
 
         
-
+        public int AttackPlayer()
+        {
+            return rnd.Next(Attack + 1);
+        }
 
     }
 

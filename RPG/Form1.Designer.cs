@@ -101,6 +101,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RPG";
             Load += Form1_Load;
+            KeyDown += Form1_KeyDown;
             ResumeLayout(false);
             PerformLayout();
         }
