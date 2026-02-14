@@ -91,7 +91,7 @@ namespace RPG
                 experience -= level * 5;
                 level += 1;
                 attack += 2;
-                maxHp += 10;
+                maxHp += 15;
             }
         }
 
@@ -111,12 +111,31 @@ namespace RPG
         public int Experience { get; set; }
 
         protected List<Ennemy> mobs = new List<Ennemy>();
+        Random rnd = new Random();
+
+        
+
+
     }
 
     public class Goblin : Ennemy
     {
-        //Nom inspirer de la
+        //les nom sont inspirés de là
         //https://www.reddit.com/r/d100/comments/i0f9rx/my_list_of_100_goblin_names_for_your_consideration/
         List<string> names = new List<string>() { "Grubb", "Stub", "Glorp", "Plorp", "Gratch", "Borkle", "Mogglewog", "Piss Jar", "Spork", "Jeremy", "Odo", "Boblin", "Goblin qui s'apelle Goblin", "Rick" };
+        Random rnd = new Random();
+
+
+        public void CreateGoblin(Player player)
+        {
+            Goblin goblin = new Goblin();
+            goblin.Name = names[rnd.Next(names.Count - 1)];
+            goblin.Level = player.Level - 1;
+            goblin.Hp = 90 + goblin.Level * 2;
+            goblin.Attack = goblin.Level;
+            goblin.Defense = 0;
+            goblin.Experience = goblin.Level * 5;
+            mobs.Add(goblin);
+        }
     }
 }
