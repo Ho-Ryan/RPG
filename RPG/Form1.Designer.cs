@@ -36,6 +36,7 @@
             label7 = new Label();
             label8 = new Label();
             Events = new Label();
+            Action = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -117,12 +118,24 @@
             Events.Size = new Size(756, 356);
             Events.TabIndex = 10;
             // 
+            // Action
+            // 
+            Action.BackColor = SystemColors.InactiveCaptionText;
+            Action.BorderStyle = BorderStyle.FixedSingle;
+            Action.Font = new Font("Calibri", 26F);
+            Action.Location = new Point(12, 42);
+            Action.Name = "Action";
+            Action.Size = new Size(764, 382);
+            Action.TabIndex = 11;
+            Action.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
             ClientSize = new Size(1584, 861);
+            Controls.Add(Action);
             Controls.Add(Events);
             Controls.Add(label8);
             Controls.Add(label7);
@@ -154,5 +167,6 @@
         private Label label7;
         private Label label8;
         private Label Events;
+        private Label Action;
     }
 }

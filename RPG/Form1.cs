@@ -1,3 +1,6 @@
+using System.DirectoryServices.ActiveDirectory;
+using static System.Windows.Forms.DataFormats;
+
 namespace RPG
 {
     public partial class Form1 : Form
@@ -10,9 +13,10 @@ namespace RPG
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
             Player player = new Player();
             Ennemy ennemies = new Ennemy();
+            Forest forest = new Forest();
+            Action.Text = "1) Shop\n2) Forêt\n";
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -27,7 +31,7 @@ namespace RPG
                         break;
                     case Keys.D2:
                         InAction = true;
-                        Forest();
+                        Forest.EnterForest(Events, e);
                         break;
                     case Keys.D3:
                         break;
@@ -37,11 +41,10 @@ namespace RPG
             }
         }
 
-        public void Forest()
-        {
-            Events.Text += ("Vous aller dans la forêt\n");
-
-        }
+        //public void Forest()
+        //{
+        //    Events.Text += ("Vous aller dans la forêt\n");
+        //}
 
         public void Shop()
         {
