@@ -6,6 +6,19 @@ namespace RPG
     public partial class Form1 : Form
     {
         public bool InAction = false;
+
+        public Ennemy ennemies = new Ennemy();
+        //public Ennemy Ennemies
+        //{
+        //    get { return ennemies; }
+        //    set { ennemies = value; }
+        //}
+        public Player player = new Player();
+        //public Player Player
+        //{
+        //    get { return player; }
+        //    set { player = value; }
+        //}
         public Form1()
         {
             InitializeComponent();
@@ -13,15 +26,13 @@ namespace RPG
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Player player = new Player();
-            Ennemy ennemies = new Ennemy();
-            Forest forest = new Forest();
+
             Action.Text = "1) Shop\n2) Forêt\n";
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            //Selection de zone$
+            //Selection de zone
             if (!InAction)
             {
                 switch (e.KeyData)
@@ -30,25 +41,31 @@ namespace RPG
                         Shop();
                         break;
                     case Keys.D2:
-                        InAction = true;
-                        Forest.EnterForest(Events, e);
+                        Forest foret = new Forest(player, ennemies);
+                        foret.ShowDialog();
                         break;
                     case Keys.D3:
                         break;
                     case Keys.D4:
                         break;
                 }
+                if (e.KeyData == Keys.Enter)
+                {
+                    player.ShowStats();
+                }
             }
         }
 
-        //public void Forest()
-        //{
-        //    Events.Text += ("Vous aller dans la forêt\n");
-        //}
+
 
         public void Shop()
         {
             Events.Text += ("Vous entrez dans un shop\n");
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            player.LvUp();
         }
     }
 }

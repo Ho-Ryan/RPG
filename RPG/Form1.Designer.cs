@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             Actions = new Label();
             pictureBox1 = new PictureBox();
@@ -37,6 +38,7 @@
             label8 = new Label();
             Events = new Label();
             Action = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -129,6 +131,12 @@
             Action.TabIndex = 11;
             Action.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // timer1
+            // 
+            timer1.Enabled = true;
+            timer1.Interval = 1;
+            timer1.Tick += timer1_Tick;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -168,5 +176,6 @@
         private Label label8;
         private Label Events;
         private Label Action;
+        private System.Windows.Forms.Timer timer1;
     }
 }
